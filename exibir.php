@@ -3,7 +3,7 @@
 	$username = "root";
 	$password = "";
 	$db = "dbSistemas";
-	$PicNum = $_GET["PicNum"];
+	$PicNum = $_GET['PicNum'];
 
 	$conn = new mysqli($host,$username,$password) or die("Impossível Conectar");
 
@@ -11,11 +11,11 @@
 
 	$sql = "SELECT * FROM PESSOA WHERE PES_ID=$PicNum";
 	
-	$result = mysqli_query($conn, $sql) or die("Impossível executar a query ");
+	$result = mysqli_query($conn,$sql);
 	
 	$row = mysqli_fetch_object($result);
 	
-	header( "Content-type: image/gif");
+	header("Content-type:image/gif");
 	
 	echo $row->PES_IMG;
 ?>

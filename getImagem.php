@@ -11,9 +11,10 @@
 
 	$sql = "SELECT * FROM PESSOA";
 
-	$result = mysql_query($conn, $sql) or die("Impossível executar a query");
+	$result = mysqli_query($conn,$sql) or 
+	die("Impossível executar a query");
 
-	while($row = mysqli_fetch_array($result)) {
+	while($row = mysqli_fetch_object($result)) {
 		
 		echo "<img src='getImagem.php?PicNum=$row->PES_ID' \">";
 	}
