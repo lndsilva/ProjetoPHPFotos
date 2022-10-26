@@ -3,7 +3,7 @@
 	$username = "root";
 	$password = "";
 	$db = "dbSistemas";
-	$PicNum = $_GET['PicNum'];
+	$PicNum = $_POST["PicNum"];
 
 	$conn = new mysqli($host,$username,$password) or die("Impossível Conectar");
 
@@ -11,7 +11,10 @@
 
 	$sql = "SELECT * FROM PESSOA WHERE PES_ID=$PicNum";
 	
-	$result = mysqli_query($conn,$sql);
+	$result = mysqli_query($conn,$sql)  or 
+	die("Impossível executar a query");
+
+	mysqli_report($result);
 	
 	$row = mysqli_fetch_object($result);
 	
